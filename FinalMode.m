@@ -57,42 +57,42 @@ while flag
    pause(0.05);
 end
 
-function stop(brick)
+function stop(brick) %function to stop
 disp("Holding");
 brick.MoveMotor('A', 0);
 brick.MoveMotor('D', 0);
 pause(1);
 end
 
-function stopRed(brick)
+function stopRed(brick) %function for detection of color red
 disp("Holding");
 brick.MoveMotor('A', 0);
 brick.MoveMotor('D', 0);
 pause(4);
 end
 
-function goForwardBlock(brick)
-disp("Moving block");
+function goForwardBlock(brick) %function to move forward a block
+disp("Moving a block forward");
 brick.MoveMotor('A', 40);
 brick.MoveMotor('D', 40);
 pause(4);
 end
 
-function turnRight(brick)
+function turnRight(brick) %function for turning right
 disp("Turning Right: ");
 brick.MoveMotor('A', 100);
 brick.MoveMotor('D', -100);
 pause(0.4);
 end
             
-function turnLeft(brick)
+function turnLeft(brick) %function for turning left
 disp("Turning Left");
 brick.MoveMotor('A', -100);
 brick.MoveMotor('D', 100);
 pause(0.4);
 end
 
-function checkColor(color,brick)
+function checkColor(color,brick) %function for checking color consistently
 if (color == 5)
     disp('Red Light');
     stopRed(brick);
@@ -107,10 +107,10 @@ elseif (color == 7)
 end
 end
 
-function manualMode(brick)
-flag = true;
+function manualMode(brick) %function for manual control
+auto = true;
 global key
-while flag
+while auto
     pause(0.1);
     switch key
         case 'uparrow' 
